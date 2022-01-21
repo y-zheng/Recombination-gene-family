@@ -1,0 +1,16 @@
+Format of archive files
+
+A. Equilibrium populations
+
+Each line is a chromosome, and the numbers are ID of alleles on that chromosome in order. Zeroes are used so that each line has the same number of elements as required by R. In our simulation algorithm, the first N_e lines are paternal and from (N_e+1) to the end are maternal chromosomes. Individual No. i contains chromosomes on lines i and N_e+i.
+
+B. Bottleneck
+"rep_x_eobn.txt" and "rep_x.txt" are population snapshots at end of bottleneck (generation 0) and end of run (generation 20000) respectively, with formats same as (A). "rep_x_eobn_analysis.txt" and "rep_x_analysis.txt" are population statistics every generation during bottleneck and every 10 generations after restoring to N_e.
+
+C. Migration
+
+Note here populations are organized in pairs, i.e. rep_1 and rep_2 have migration to each other, rep_3 and rep_4 to each other, etc. "rep_x.txt" is snapshots at end of run (generation 10000). "rep_x_analysis.txt" (where x is always odd) contains statistics from BOTH replicate x (column Pop = 1) and replicate x+1 (column Pop = 2), every 10 generation from start of reciprocal migration.
+
+D. Evolving recombination rate
+
+"rep_x.txt" is snapshots at end of run (generation 50000). "rep_x_analysis.txt" contains statistics (the standard statistics plus RRM mean/SD/min/max) every 10 generation from start of run when RRM become able to mutate. "rep_x_finalrrm.txt" contains RRM values at end of run for each chromosome (ordered same way as population snapshot).
